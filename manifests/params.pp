@@ -38,13 +38,8 @@ class kibana::params {
     }
 
     'Debian': {
-
-      if versioncmp($::operatingsystemmajrelease, '8') >= 0 {
-        $service_provider = 'systemd'
-      } else {
-        $service_provider = 'init'
-        $init_script_osdependend = 'kibana.legacy.service.debian.erb'
-      }
+      $service_provider = 'init'
+      $init_script_osdependend = 'kibana.legacy.service.debian.erb'
     }
 
     'Ubuntu': {
